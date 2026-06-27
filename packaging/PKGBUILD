@@ -1,0 +1,24 @@
+# Maintainer: russus <russus2@gmail.com>
+# Prebuilt PKGBUILD: assembles an Arch package from artifacts already produced
+# by the CI build step (no compilation happens here).
+pkgname=russus-launcher
+pkgver=0.0.0
+pkgrel=1
+pkgdesc="JetBrains Toolbox-style launcher for your GitHub apps — install & update from the tray"
+arch=('x86_64')
+url="https://github.com/russus87/russus_launcher"
+license=('MIT')
+depends=('webkit2gtk-4.1' 'gtk3' 'libappindicator-gtk3')
+options=('!strip' '!debug')
+
+package() {
+  install -Dm755 "$startdir/russus-launcher" "$pkgdir/usr/bin/russus-launcher"
+  install -Dm644 "$startdir/russus-launcher.desktop" \
+    "$pkgdir/usr/share/applications/russus-launcher.desktop"
+  install -Dm644 "$startdir/icon-128.png" \
+    "$pkgdir/usr/share/icons/hicolor/128x128/apps/russus-launcher.png"
+  install -Dm644 "$startdir/icon-256.png" \
+    "$pkgdir/usr/share/icons/hicolor/256x256/apps/russus-launcher.png"
+  install -Dm644 "$startdir/icon-512.png" \
+    "$pkgdir/usr/share/icons/hicolor/512x512/apps/russus-launcher.png"
+}
