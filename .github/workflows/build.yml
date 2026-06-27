@@ -1,6 +1,6 @@
 name: build
 
-on:
+"on":
   push:
     tags:
       - "v*"
