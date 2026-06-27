@@ -38,10 +38,13 @@ jobs:
           echo "version=$V" >> "$GITHUB_OUTPUT"
 
       - name: Build frontend + binary
+        # Must build through the Tauri CLI: it enables the `custom-protocol`
+        # feature so the app serves the bundled frontend instead of the dev
+        # server. A plain `cargo build` leaves is_dev()==true -> the packaged
+        # app tries localhost:1420 ("Connection refused").
         run: |
           npm ci
-          npm run build
-          cargo build --manifest-path src-tauri/Cargo.toml --release
+          npx tauri build --no-bundle
 
       - name: Stage package artifacts
         run: |

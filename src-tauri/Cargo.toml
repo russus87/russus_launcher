@@ -1,6 +1,6 @@
 [package]
 name = "russus-launcher"
-version = "0.1.0"
+version = "0.2.0"
 description = "Toolbox-style launcher for your GitHub apps"
 authors = ["russus"]
 edition = "2021"

@@ -1,6 +1,6 @@
 {
   "name": "russus-launcher",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Toolbox-style launcher for russus GitHub apps — install & update from the tray",
   "type": "module",
   "scripts": {
